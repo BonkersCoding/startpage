@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    all: unset;
+    padding: 0 3px;
+}
+
+button {
+    all: unset;
+}
+
+#bookmarks {
+    display: flex;
+}
+
+#input {
+    display: flex;
+}
+
+h2{
+    padding: 0 10px;
+} 
