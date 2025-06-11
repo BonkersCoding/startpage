@@ -7,35 +7,44 @@
     <title>Startpage</title>
 </head>
 <body>
-    <span id="clock"></span>
-    <span id="date"></span>
-    <h1 id="greeting">Welcome back!</h1>
-    <div id="input">
-        <h3>> cd ~/</h3>
-        <input
-            type="text"
-            id="search"
-            name="search"
-            size="10" /><br>
+    <div id="left">
+        <span id="clock"></span>
+        <span id="date"></span>
+        <h1 id="greeting">Welcome back!</h1>
+    <img id="cat" height="300px" width="200px">
     </div>
-    <div id="bookmarks">
-        <div id="daily">
-            <h2>Daily</h2>
+    <div id="right">
+        <div id="input">
+            <h3 id="prompt">> cd ~/</h3>
+            <input
+                type="text"
+                id="search"
+                name="search"
+                size="10"
+                autofocus /><br>
         </div>
-        <div id="coding">
-            <h2>Coding</h2>
+        <div id="bookmarks">
+            <div id="daily">
+                <h2 class="bookmark-folder">[Daily]</h2>
+            </div>
+            <div id="coding">
+                <h2 class="bookmark-folder">[Coding]</h2>
+            </div>
+            <div id="music">
+                <h2 class="bookmark-folder">[Music]</h2>
+            </div>
+            <div id="reddit">
+                <h2 class="bookmark-folder">[Reddit]</h2>
+            </div>
+            <div id="education">
+                <h2 class="bookmark-folder">[Education]</h2>
+            </div>
         </div>
-        <div id="music">
-            <h2>Music</h2>
-        </div>
-        <div id="reddit">
-            <h2>Reddit</h2>
-        </div>
-        <div id="education">
-            <h2>Education</h2>
+        <div id="bookmarks-list"></div>
+        <div class="buttons">
+            <button id="addBookmark">[Add bookmark]</button>
+            <button id="fortune">[Fortune cookie]</button>
         </div>
     </div>
-    <button id="addBookmark">Add bookmark</button>
-    <button id="fortune">Fortune cookie</button>
 </body>
 </html>

@@ -1,10 +1,10 @@
 body {
     display: flex;
-    flex-direction: column;
     height: 100vh;
     font-family: 'Courier New', Courier, monospace;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 input {
@@ -16,6 +16,20 @@ button {
     all: unset;
 }
 
+#right {
+    min-height: 300px;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 #bookmarks {
     display: flex;
 }
@@ -24,6 +38,23 @@ button {
     display: flex;
 }
 
-h2{
-    padding: 0 10px;
+#greeting {
+    font-size: 25px;
+    align-self: center;
+}
+
+.bookmark-folder {
+    padding: 0 5px;
 } 
+
+#prompt {
+    font-size: 40px;
+}
+
+#bookmarks-list {
+    height: 200px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    margin: -10px 0 20px 5px;
+}
