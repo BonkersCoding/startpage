@@ -47,7 +47,7 @@ button {
     justify-content: space-around;
 }
 
-#bookmarks {
+#folders {
     display: flex;
 }
 
@@ -60,7 +60,7 @@ button {
     align-self: center;
 }
 
-.bookmark-folder {
+#bookmark-folder {
     padding: 0 5px;
 } 
 
@@ -68,7 +68,7 @@ button {
     font-size: 40px;
 }
 
-#bookmarks-list {
+#bookmarks-window {
     height: 200px;
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, 0.1);
