@@ -10,6 +10,9 @@ body {
 input {
     all: unset;
     padding: 0 3px;
+    font-weight: bold;
+    font-size: 40px;
+    caret-shape: block;
 }
 
 button {
@@ -17,8 +20,9 @@ button {
 }
 
 a {
-    color: white;
-    font-size: 25px;
+    color: rgb(179, 194, 173);
+    font-size: 20px;
+    font-weight: bold;
     margin: 15px;
 }
 
@@ -56,7 +60,6 @@ a {
 #left {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 #folders {
@@ -69,7 +72,7 @@ a {
 
 #greeting {
     font-size: 30px;
-    align-self: center;
+    max-width: 350px;
 }
 
 .bookmark-folder {
@@ -78,6 +81,7 @@ a {
 
 #prompt {
     font-size: 40px;
+    margin-right: 10px;
 }
 
 #bookmarks-window {

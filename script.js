@@ -31,7 +31,7 @@ function changeWindow(mode) {
     bookmarkList.forEach((bookmark) => {
       if(bookmark.folder === mode) {
       let link = document.createElement("a");
-      link.textContent = bookmark.name;
+      link.textContent = `/${bookmark.name}`;
       link.href = bookmark.url;
       bookmarkWindow.appendChild(link);
       }
@@ -43,7 +43,7 @@ function addBookmark(name, url, folder) {
     const bookmarkList = saved ? JSON.parse(saved) : [];
     console.log(bookmarkList);
     const bookmark = {
-      name: `/${name}`,
+      name: name,
       url: url,
       folder: folder
     }
