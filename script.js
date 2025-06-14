@@ -43,14 +43,13 @@ function addBookmark(name, url, folder) {
     const bookmarkList = saved ? JSON.parse(saved) : [];
     console.log(bookmarkList);
     const bookmark = {
-      name: name,
+      name: `/${name}`,
       url: url,
       folder: folder
     }
     bookmarkList.push(bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
-    console.log(bookmarkList);
-
+    changeWindow(folder);
 
 }
 
