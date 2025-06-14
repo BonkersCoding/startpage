@@ -23,40 +23,46 @@ function getCat() {
       console.error("Failed to fetch cats:", error);
     });
 }
-/*
+
 function changeWindow(mode) {
+    const saved = localStorage.getItem('bookmarks');
+    const bookmarkList = saved ? JSON.parse(saved) : [];
+    bookmarkWindow.innerHTML = "";
+    bookmarkList.forEach((bookmark) => {
+      if(bookmark.folder === mode) {
+      let link = document.createElement("a");
+      link.textContent = bookmark.name;
+      link.href = bookmark.url;
+      bookmarkWindow.appendChild(link);
+      }
+      })
+}
 
-    switch (mode) {
-        if (bookmarkWindow.hasChildNodes) {
-            bookmarkWindow.removeChild(bookmarkWindow.firstChild);
-        }
-        case folder:
-            
-            break;
-        
-        case addBookmark:
-
-            break;
-
-        default:
-            break;
+function addBookmark(name, url, folder) {
+    const saved = localStorage.getItem('bookmarks');
+    const bookmarkList = saved ? JSON.parse(saved) : [];
+    console.log(bookmarkList);
+    const bookmark = {
+      name: name,
+      url: url,
+      folder: folder
     }
+    bookmarkList.push(bookmark);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
+    console.log(bookmarkList);
+
+
 }
 
-function addBookmark() {
-
-}
-*/
 folders.addEventListener('click', (e)=>{
-    console.log("activity happening...")
-    console.log(e.target);
-    if(e.target.closest("#bookmark-folder")) { 
+    if(e.target.closest(".bookmark-folder")) { 
         if (targetFolder) {
             targetFolder.classList.toggle("selected");
         }
-        targetFolder = e.target;
+        targetFolder = e.target.closest(".bookmark-folder");
         targetFolder.classList.add("selected");
-        console.log("folder picked!");
+        let selectedFolder = targetFolder.id;
+        changeWindow(selectedFolder);
     }
 })
 

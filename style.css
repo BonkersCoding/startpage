@@ -16,6 +16,11 @@ button {
     all: unset;
 }
 
+.selected {
+    color: rgb(72, 255, 0);
+    font-size: 30px;
+}
+
 #frame {
     width: 350px;
     height: 400px;
@@ -35,6 +40,7 @@ button {
 
 #right {
     min-height: 300px;
+    min-width: 700px;
     margin-left: 60px;
     display: flex;
     flex-direction: column;
@@ -56,12 +62,12 @@ button {
 }
 
 #greeting {
-    font-size: 25px;
+    font-size: 30px;
     align-self: center;
 }
 
-#bookmark-folder {
-    padding: 0 5px;
+.bookmark-folder {
+    padding: 0 15px;
 } 
 
 #prompt {
