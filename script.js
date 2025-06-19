@@ -41,16 +41,46 @@ function changeWindow(mode) {
 function addBookmark(name, url, folder) {
     const saved = localStorage.getItem('bookmarks');
     const bookmarkList = saved ? JSON.parse(saved) : [];
+    const i = bookmarkList.length;
     console.log(bookmarkList);
     const bookmark = {
       name: name,
       url: url,
-      folder: folder
+      folder: folder,
+      index: i
     }
     bookmarkList.push(bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
     changeWindow(folder);
 
+}       
+
+function updateArrayIndex(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.length === 0) {
+      break;
+    }
+    const element = arr[i];
+    element.index = i;          
+  }
+}
+
+function removeBookmark(i) {
+    const saved = localStorage.getItem('bookmarks');
+    const bookmarkList = saved ? JSON.parse(saved) : [];
+    if (bookmarkList) {
+      bookmarkList.forEach(bookmark => {
+        if (Number(bookmark.index) === i) {
+          bookmarkList.splice(bookmarkList.indexOf(bookmark), 1);
+        }       
+      })
+
+    updateArrayIndex(bookmarkList);
+    console.log(bookmarkList);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
+    changeWindow(targetFolder);
+    }
+    
 }
 
 folders.addEventListener('click', (e)=>{
