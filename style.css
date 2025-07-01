@@ -29,7 +29,7 @@ a {
     color: rgb(179, 194, 173);
     font-size: 20px;
     font-weight: bold;
-    margin: 15px;
+    margin-bottom: 10px;
 }
 
 .selected {
@@ -37,7 +37,9 @@ a {
     font-size: 30px;
 }
 
-.form-input, .form {
+.form-input, 
+.form,
+.folder {
     display: flex;
     flex-direction: column;
 }
@@ -54,6 +56,10 @@ a {
     text-align: center;
     margin: 10px 0;
     border-bottom: 1px solid white;
+}
+
+.folder {
+    margin: 0 15px;
 }
 
 #container {
@@ -121,12 +127,9 @@ a {
 
 #bookmarks-window {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
     align-content: flex-start;
     height: 350px;
     flex-shrink: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     padding: 20px;
 }

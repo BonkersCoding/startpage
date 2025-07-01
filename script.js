@@ -30,41 +30,29 @@ function getCat() {
 }
 
 function displayBookmarks() {
-    bookmarkWindow.innerHTML = "";
-    for (const folder of folderList) {      
-      const folderContainer = document.createElement("div");
-      folderContainer.classList.add("folder");
-      const folderName = document.createElement("h2");
-      folderName.textContent = `${folder}`;
-      folderContainer.appendChild(folderName);
-      bookmarkList.forEach((bookmark) => {
-        if(bookmark.folder === folder) {
-          let link = document.createElement("a");
-          link.textContent = `/${bookmark.name}`;
-          link.href = bookmark.url;
-          folderContainer.appendChild(link);
-          }
-      })
-      bookmarkWindow.appendChild(folderContainer);        
-    }
-
-} 
-
-function changeWindow(mode) {
-    const saved = localStorage.getItem('bookmarks');
-    const bookmarkList = saved ? JSON.parse(saved) : [];
-    bookmarkWindow.innerHTML = "";
+  bookmarkWindow.classList.toggle("list");
+  bookmarkWindow.innerHTML = "";
+  for (const folder of folderList) {      
+    const folderContainer = document.createElement("div");
+    folderContainer.classList.add("folder");
+    const folderName = document.createElement("h2");
+    folderName.textContent = `/${folder}`;
+    folderContainer.appendChild(folderName);
     bookmarkList.forEach((bookmark) => {
-      if(bookmark.folder === mode) {
-      let link = document.createElement("a");
-      link.textContent = `/${bookmark.name}`;
-      link.href = bookmark.url;
-      bookmarkWindow.appendChild(link);
-      }
-      })
+      if(bookmark.folder === folder) {
+        let link = document.createElement("a");
+        link.textContent = `/${bookmark.name}`;
+        link.href = bookmark.url;
+        folderContainer.appendChild(link);
+        }
+    })
+    bookmarkWindow.appendChild(folderContainer);        
+  }
+
 }
 
 function bookmarkInput() {
+  bookmarkWindow.classList.toggle("list");
   const form = document.createElement("div");
   form.classList.add("form");
   const formInput = document.createElement("div");
@@ -100,7 +88,10 @@ function bookmarkInput() {
     const nameInput = bookmarkName.value;
     const urlInput = bookmarkURL.value;
     const folderInput = bookmarkFolder.value;
-  if(nameInput && urlInput && folderInput) {addBookmark(nameInput, urlInput, folderInput);}
+  if(nameInput && urlInput && folderInput) {
+    addBookmark(nameInput, urlInput, folderInput);
+    displayBookmarks();
+  }
   })
   cancelBtn.addEventListener ('click', ()=>{displayBookmarks()});
 }
@@ -172,3 +163,4 @@ folderMenu.addEventListener('click', (e)=>{
 */
 
 getCat();
+displayBookmarks();
