@@ -1,5 +1,6 @@
 let catPic = document.getElementById("cat");
 let bookmarkWindow = document.getElementById("bookmarks-window");
+const addBookmarkBtn = document.getElementById("add-bookmark");
 const savedBookmarks = localStorage.getItem('bookmarks');
 const bookmarkList = savedBookmarks ? JSON.parse(savedBookmarks) : [];
 const savedFolders = localStorage.getItem('folders');
@@ -64,26 +65,44 @@ function changeWindow(mode) {
 }
 
 function bookmarkInput() {
+  const form = document.createElement("div");
+  form.classList.add("form");
+  const formInput = document.createElement("div");
+  formInput.classList.add("form-input");
+  const formButtons = document.createElement("div");
+  formButtons.classList.add("form-buttons");
   const bookmarkName = document.createElement("input");
+  bookmarkName.classList.add("input-field");
   bookmarkName.type = "text";
-  bookmarkName.placeholder = "Bookmark name";
+  bookmarkName.placeholder = "name";
   const bookmarkURL = document.createElement("input");
+  bookmarkURL.classList.add("input-field");
   bookmarkURL.type = "text";
-  bookmarkURL.placeholder = "Bookmark URL";
+  bookmarkURL.placeholder = "URL";
   const bookmarkFolder = document.createElement("input");
-  bookmarkFolder.placeholder = "Folder: "
+  bookmarkFolder.classList.add("input-field");
+  bookmarkFolder.placeholder = "folder"
   const addBtn = document.createElement("button");
-  addBtn.textContent = "Add bookmark";
-  bookmarkWindow.appendChild(bookmarkName);
-  bookmarkWindow.appendChild(bookmarkURL);
-  bookmarkWindow.appendChild(bookmarkFolder);
-  bookmarkWindow.appendChild(addBtn);
+  addBtn.classList.add("add-button");
+  addBtn.textContent = "save";
+  const cancelBtn = document.createElement("button");
+  cancelBtn.classList.add("cancel-button");
+  cancelBtn.textContent = "cancel";
+  formInput.appendChild(bookmarkName);
+  formInput.appendChild(bookmarkURL);
+  formInput.appendChild(bookmarkFolder);
+  formButtons.appendChild(addBtn);
+  formButtons.appendChild(cancelBtn);
+  form.appendChild(formInput);
+  form.appendChild(formButtons);
+  bookmarkWindow.appendChild(form);
   addBtn.addEventListener ("click", ()=>{
     const nameInput = bookmarkName.value;
     const urlInput = bookmarkURL.value;
     const folderInput = bookmarkFolder.value;
-  addBookmark(nameInput, urlInput, folderInput);
+  if(nameInput && urlInput && folderInput) {addBookmark(nameInput, urlInput, folderInput);}
   })
+  cancelBtn.addEventListener ('click', ()=>{displayBookmarks()});
 }
 
 function addBookmark(name, url, folder) {
@@ -132,6 +151,12 @@ function removeBookmark(i) {
     }
     
 }
+
+addBookmarkBtn.addEventListener('click', ()=>{
+  bookmarkWindow.textContent = "";
+  bookmarkInput()
+});
+
 /*
 folderMenu.addEventListener('click', (e)=>{
     if(e.target.closest(".bookmark-folder")) { 

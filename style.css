@@ -17,6 +17,12 @@ input {
 
 button {
     all: unset;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 a {
@@ -29,6 +35,25 @@ a {
 .selected {
     color: rgb(72, 255, 0);
     font-size: 30px;
+}
+
+.form-input, .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input-field {
+    font-size: 25px;
+    text-align: center;
+    margin: 10px 0;
+    border-bottom: 1px solid white;
 }
 
 #container {
@@ -99,9 +124,9 @@ a {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-    height: 200px;
+    height: 350px;
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    margin: -10px 0 20px 5px;
+    padding: 20px;
 }
