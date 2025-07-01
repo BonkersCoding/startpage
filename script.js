@@ -1,7 +1,11 @@
 let catPic = document.getElementById("cat");
 let bookmarkWindow = document.getElementById("bookmarks-window");
-let folders = document.getElementById("folders");
+const savedBookmarks = localStorage.getItem('bookmarks');
+const bookmarkList = savedBookmarks ? JSON.parse(savedBookmarks) : [];
+const savedFolders = localStorage.getItem('folders');
+const folderList = savedFolders ? JSON.parse(savedFolders) : [];
 let targetFolder;
+let selectedFolder;
 
 function getCat() {
   fetch("https://www.reddit.com/r/illegallysmolcats/hot.json")
@@ -24,6 +28,27 @@ function getCat() {
     });
 }
 
+function displayBookmarks() {
+    bookmarkWindow.innerHTML = "";
+    for (const folder of folderList) {      
+      const folderContainer = document.createElement("div");
+      folderContainer.classList.add("folder");
+      const folderName = document.createElement("h2");
+      folderName.textContent = `${folder}`;
+      folderContainer.appendChild(folderName);
+      bookmarkList.forEach((bookmark) => {
+        if(bookmark.folder === folder) {
+          let link = document.createElement("a");
+          link.textContent = `/${bookmark.name}`;
+          link.href = bookmark.url;
+          folderContainer.appendChild(link);
+          }
+      })
+      bookmarkWindow.appendChild(folderContainer);        
+    }
+
+} 
+
 function changeWindow(mode) {
     const saved = localStorage.getItem('bookmarks');
     const bookmarkList = saved ? JSON.parse(saved) : [];
@@ -38,20 +63,45 @@ function changeWindow(mode) {
       })
 }
 
+function bookmarkInput() {
+  const bookmarkName = document.createElement("input");
+  bookmarkName.type = "text";
+  bookmarkName.placeholder = "Bookmark name";
+  const bookmarkURL = document.createElement("input");
+  bookmarkURL.type = "text";
+  bookmarkURL.placeholder = "Bookmark URL";
+  const bookmarkFolder = document.createElement("input");
+  bookmarkFolder.placeholder = "Folder: "
+  const addBtn = document.createElement("button");
+  addBtn.textContent = "Add bookmark";
+  bookmarkWindow.appendChild(bookmarkName);
+  bookmarkWindow.appendChild(bookmarkURL);
+  bookmarkWindow.appendChild(bookmarkFolder);
+  bookmarkWindow.appendChild(addBtn);
+  addBtn.addEventListener ("click", ()=>{
+    const nameInput = bookmarkName.value;
+    const urlInput = bookmarkURL.value;
+    const folderInput = bookmarkFolder.value;
+  addBookmark(nameInput, urlInput, folderInput);
+  })
+}
+
 function addBookmark(name, url, folder) {
-    const saved = localStorage.getItem('bookmarks');
-    const bookmarkList = saved ? JSON.parse(saved) : [];
-    const i = bookmarkList.length;
+    const length = bookmarkList.length;
     console.log(bookmarkList);
     const bookmark = {
       name: name,
       url: url,
       folder: folder,
-      index: i
+      index: length
+    }
+    if (!folderList.includes(folder)) {
+      folderList.push(folder);
     }
     bookmarkList.push(bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
-    changeWindow(folder);
+    localStorage.setItem('folders', JSON.stringify(folderList));
+    displayBookmarks();
 
 }       
 
@@ -82,18 +132,18 @@ function removeBookmark(i) {
     }
     
 }
-
-folders.addEventListener('click', (e)=>{
+/*
+folderMenu.addEventListener('click', (e)=>{
     if(e.target.closest(".bookmark-folder")) { 
         if (targetFolder) {
             targetFolder.classList.toggle("selected");
         }
         targetFolder = e.target.closest(".bookmark-folder");
         targetFolder.classList.add("selected");
-        let selectedFolder = targetFolder.id;
+        selectedFolder = targetFolder.id;
         changeWindow(selectedFolder);
     }
 })
-
+*/
 
 getCat();
