@@ -36,13 +36,14 @@ function displayBookmarks() {
     const folderContainer = document.createElement("div");
     folderContainer.classList.add("folder");
     const folderName = document.createElement("h2");
-    folderName.textContent = `/${folder}`;
+    folderName.classList.add("folder-name");
+    folderName.textContent = `${folder}`;
     folderContainer.appendChild(folderName);
     bookmarkList.forEach((bookmark) => {
       if(bookmark.folder === folder) {
         let linkContainer = document.createElement("span");
         let link = document.createElement("a");
-        link.textContent = `/${bookmark.name}`;
+        link.textContent = `${bookmark.name}`;
         link.href = bookmark.url;
         linkContainer.classList.add("link");
         linkContainer.dataset.index = `${bookmark.index}`;
