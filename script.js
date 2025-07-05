@@ -42,17 +42,10 @@ function displayBookmarks() {
       if(bookmark.folder === folder) {
         let linkContainer = document.createElement("span");
         let link = document.createElement("a");
-        let deleteBtn = document.createElement("p");
-        deleteBtn.textContent= "X";
-        deleteBtn.dataset.index = bookmark.index;
-        deleteBtn.addEventListener('click', () => {
-          removeBookmark(Number(deleteBtn.dataset.index));
-        })
         link.textContent = `/${bookmark.name}`;
         link.href = bookmark.url;
         linkContainer.classList.add("link");
-        link.dataset.index = `${bookmark.index}`;
-        linkContainer.appendChild(deleteBtn);
+        linkContainer.dataset.index = `${bookmark.index}`;
         linkContainer.appendChild(link);
         folderContainer.appendChild(linkContainer);
         }
@@ -60,6 +53,20 @@ function displayBookmarks() {
     bookmarkWindow.appendChild(folderContainer);        
   }
 
+}
+
+function addDeleteButton() {
+  const links = document.getElementsByClassName("link");
+  for (let i=0; i < links.length; i++) {
+    let deleteBtn = document.createElement("p");
+    deleteBtn.textContent= "✘";
+    deleteBtn.dataset.index = links[i].dataset.index;
+    deleteBtn.addEventListener('click', () => {
+      removeBookmark(Number(deleteBtn.dataset.index));
+      displayBookmarks();
+    })
+    links[i].appendChild(deleteBtn);
+  }
 }
 
 function bookmarkInput() {
@@ -167,6 +174,8 @@ addBookmarkBtn.addEventListener('click', ()=>{
   bookmarkWindow.textContent = "";
   bookmarkInput();
 });
+
+removeBookmarkBtn.addEventListener('click', () => {addDeleteButton();})
 
 getCat();
 displayBookmarks();
