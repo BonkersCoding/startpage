@@ -8,34 +8,32 @@
     <title>Startpage</title>
 </head>
 <body>
+    <div id="input">
+        <h3 id="prompt">>></h3>
+        <input
+            type="text"
+            id="search"
+            name="search"
+            size="40"
+            autofocus /><br>
+    </div>
     <div id="container">
         <div id="left">
+            <div id="frame">
+                <img id="cat" alt="Cat loading...">
+            </div>
             <span id="clock"></span>
             <span id="date"></span>
-            <div id = "greeting">
-                <h2 id="greeting1">It's dangerous to go alone!</h2>
-                <h3 id="greeting2">Take this!</h3>
+            <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
+        </div>
+        <div id="right">
+            <div id="bookmarks-window"></div>
+            <div class="buttons">
+                <button id="add-bookmark">Add bookmark</button>
+                <button id="remove-bookmark">Remove bookmark</button>
+                <button id="fortune">Fortune cookie</button>
             </div>
-            <div id="frame">
-                <img id="cat" alt="Illegally smol cat loading...">
         </div>
-    </div>
-    <div id="right">
-        <div id="input">
-            <h3 id="prompt">>></h3>
-            <input
-                type="text"
-                id="search"
-                name="search"
-                size="10"
-                autofocus /><br>
-        </div>
-        <div id="bookmarks-window"></div>
-        <div class="buttons">
-            <button id="add-bookmark">Add bookmark</button>
-            <button id="fortune">Fortune cookie</button>
-        </div>
-    </div>
     </div>
 </body>
 </html>

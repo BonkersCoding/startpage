@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     font-family: 'Courier New', Courier, monospace;
     justify-content: center;
@@ -19,8 +20,8 @@ button {
     all: unset;
     cursor: pointer;
     border: 1px solid white;
-    border-radius: 10px;
     padding: 5px 10px;
+    margin: 0 3px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -30,11 +31,6 @@ a {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-.selected {
-    color: rgb(72, 255, 0);
-    font-size: 30px;
 }
 
 .form-input, 
@@ -59,19 +55,26 @@ a {
 }
 
 .folder {
-    margin: 0 15px;
+    min-width: 150px;
+    margin: 0 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    margin: 10px;
 }
 
 #container {
     display: flex;
-    padding: 50px;
-    background-color: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 40px 50px rgba(0, 0, 0, 0.4);
+    padding: 15px 10px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 #frame {
     width: 450px;
-    height: 600px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -81,16 +84,14 @@ a {
 
 #cat {
     width: 400px;
+    max-height: 600px;
     flex-shrink: 1;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     padding: 10px;
 }
 
 #right {
     min-height: 300px;
     min-width: 700px;
-    margin-left: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -100,7 +101,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 #folders {
@@ -109,16 +109,15 @@ a {
 
 #input {
     display: flex;
+    margin: 10px 0;
+    min-width: 1130px;
 }
 
 #greeting {
-    font-size: 20px;
+    font-size: 25px;
+    width: 400px;
     text-align: center;
 }
-
-.bookmark-folder {
-    padding: 0 15px;
-} 
 
 #prompt {
     font-size: 40px;
@@ -129,7 +128,6 @@ a {
     display: flex;
     flex-direction: row;
     align-content: flex-start;
-    height: 350px;
+    flex-wrap: wrap;
     flex-shrink: 0;
-    padding: 20px;
 }

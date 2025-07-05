@@ -9,7 +9,7 @@ let targetFolder;
 let selectedFolder;
 
 function getCat() {
-  fetch("https://www.reddit.com/r/illegallysmolcats/hot.json")
+  fetch("https://www.reddit.com/r/pallascats/hot.json")
     .then(response => response.json())
     .then(data => {
       const posts = data.data.children;
@@ -30,7 +30,6 @@ function getCat() {
 }
 
 function displayBookmarks() {
-  bookmarkWindow.classList.toggle("list");
   bookmarkWindow.innerHTML = "";
   for (const folder of folderList) {      
     const folderContainer = document.createElement("div");
@@ -67,9 +66,19 @@ function bookmarkInput() {
   bookmarkURL.classList.add("input-field");
   bookmarkURL.type = "text";
   bookmarkURL.placeholder = "URL";
+  const folderSuggestions = document.createElement("datalist");
+  folderSuggestions.id = "suggestions";
+  for (let i = 0; i < folderList.length; i++) {
+    const suggestion = document.createElement("option");
+    suggestion.value = folderList[i];
+    folderSuggestions.appendChild(suggestion);
+    console.log(suggestion);
+  }
+  console.log(folderSuggestions);
   const bookmarkFolder = document.createElement("input");
   bookmarkFolder.classList.add("input-field");
-  bookmarkFolder.placeholder = "folder"
+  bookmarkFolder.placeholder = "folder";
+  bookmarkFolder.setAttribute("list", "suggestions");
   const addBtn = document.createElement("button");
   addBtn.classList.add("add-button");
   addBtn.textContent = "save";
@@ -83,6 +92,7 @@ function bookmarkInput() {
   formButtons.appendChild(cancelBtn);
   form.appendChild(formInput);
   form.appendChild(formButtons);
+  form.appendChild(folderSuggestions);
   bookmarkWindow.appendChild(form);
   addBtn.addEventListener ("click", ()=>{
     const nameInput = bookmarkName.value;
@@ -126,8 +136,6 @@ function updateArrayIndex(arr) {
 }
 
 function removeBookmark(i) {
-    const saved = localStorage.getItem('bookmarks');
-    const bookmarkList = saved ? JSON.parse(saved) : [];
     if (bookmarkList) {
       bookmarkList.forEach(bookmark => {
         if (Number(bookmark.index) === i) {
@@ -136,16 +144,15 @@ function removeBookmark(i) {
       })
 
     updateArrayIndex(bookmarkList);
-    console.log(bookmarkList);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
-    changeWindow(targetFolder);
     }
+    displayBookmarks();
     
 }
 
 addBookmarkBtn.addEventListener('click', ()=>{
   bookmarkWindow.textContent = "";
-  bookmarkInput()
+  bookmarkInput();
 });
 
 /*
