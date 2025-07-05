@@ -1,6 +1,7 @@
 let catPic = document.getElementById("cat");
 let bookmarkWindow = document.getElementById("bookmarks-window");
 const addBookmarkBtn = document.getElementById("add-bookmark");
+const removeBookmarkBtn = document.getElementById("remove-bookmark");
 const savedBookmarks = localStorage.getItem('bookmarks');
 const bookmarkList = savedBookmarks ? JSON.parse(savedBookmarks) : [];
 const savedFolders = localStorage.getItem('folders');
@@ -39,10 +40,21 @@ function displayBookmarks() {
     folderContainer.appendChild(folderName);
     bookmarkList.forEach((bookmark) => {
       if(bookmark.folder === folder) {
+        let linkContainer = document.createElement("span");
         let link = document.createElement("a");
+        let deleteBtn = document.createElement("p");
+        deleteBtn.textContent= "X";
+        deleteBtn.dataset.index = bookmark.index;
+        deleteBtn.addEventListener('click', () => {
+          removeBookmark(Number(deleteBtn.dataset.index));
+        })
         link.textContent = `/${bookmark.name}`;
         link.href = bookmark.url;
-        folderContainer.appendChild(link);
+        linkContainer.classList.add("link");
+        link.dataset.index = `${bookmark.index}`;
+        linkContainer.appendChild(deleteBtn);
+        linkContainer.appendChild(link);
+        folderContainer.appendChild(linkContainer);
         }
     })
     bookmarkWindow.appendChild(folderContainer);        
@@ -106,6 +118,7 @@ function bookmarkInput() {
   cancelBtn.addEventListener ('click', ()=>{displayBookmarks()});
 }
 
+
 function addBookmark(name, url, folder) {
     const length = bookmarkList.length;
     console.log(bookmarkList);
@@ -154,20 +167,6 @@ addBookmarkBtn.addEventListener('click', ()=>{
   bookmarkWindow.textContent = "";
   bookmarkInput();
 });
-
-/*
-folderMenu.addEventListener('click', (e)=>{
-    if(e.target.closest(".bookmark-folder")) { 
-        if (targetFolder) {
-            targetFolder.classList.toggle("selected");
-        }
-        targetFolder = e.target.closest(".bookmark-folder");
-        targetFolder.classList.add("selected");
-        selectedFolder = targetFolder.id;
-        changeWindow(selectedFolder);
-    }
-})
-*/
 
 getCat();
 displayBookmarks();
