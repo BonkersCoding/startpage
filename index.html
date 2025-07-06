@@ -18,15 +18,15 @@
             autofocus /><br>
     </div>
     <div id="container">
-        <div id="left">
+        <div id="left" class="vbox">
             <img id="cat" alt="Cat loading...">
             <span id="clock"></span>
             <span id="date"></span>
             <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
         </div>
         <div id="right">
-            <div id="bookmark-input" class="form">
-                <div class="form-input">
+            <div id="form" class="vbox">
+                <div class="vbox">
                     <input
                         type="text"
                         id="bookmark-name"
@@ -54,15 +54,15 @@
                         list="suggestions" />
                 </div>
                 <div class="form-buttons">
-                    <button id="add-button">save</button>
-                    <button id="cancel-button">cancel</button>
+                    <button id="add-button">[save]</button>
+                    <button id="cancel-button">[cancel]</button>
                 </div>
             </div>
             <div id="bookmarks-window"></div>
-            <div class="buttons">
-                <button id="add-bookmark">Add bookmark</button>
-                <button id="remove-bookmark">Remove bookmark</button>
-                <button id="fortune">Fortune cookie</button>
+            <div class="hbox">
+                <button id="add-bookmark">[Add bookmark]</button>
+                <button id="remove-bookmark">[Remove bookmark]</button>
+                <button id="fortune">[Fortune cookie]</button>
             </div>
         </div>
     </div>

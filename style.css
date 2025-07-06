@@ -1,10 +1,10 @@
 body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    font-family: 'Courier New', Courier, monospace;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
@@ -13,90 +13,78 @@ input {
     padding: 0 3px;
     font-weight: bold;
     font-size: 40px;
-    caret-shape: block;
 }
 
 button {
     all: unset;
     cursor: pointer;
-    border: 1px solid white;
     padding: 5px 10px;
     margin: 0 3px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
+    color: wheat;
 }
 
 a {
     color: rgb(179, 194, 173);
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
     text-decoration: none;
 }
 
-.form-input, 
-.form,
-.folder {
+.hbox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.form {   
+.vbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+#form {   
     display: none; /* Hidden by default */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
     justify-content: center;
     align-items: center;
 }
 
 .active {
-    display: flex;
-}
-
-.form-buttons {
-    margin-top: 30px;
+    display: flex !important;
 }
 
 .input-field {
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     margin: 10px 0;
     border-bottom: 1px solid white;
 }
 
 .folder {
-    width: 250px;
-    margin: 0 30px 40px 0;
+    width: 20%;
+    margin: 0 10px 20px 0;
+    align-self: flex-start;
 }
 
 .folder-name {
-    margin: 10px 0;
-    font-size: 28px;
+    margin: 0 0 10px 0;
+    font-size: 20px;
     font-weight: bold;
     color: #b95fd2;
-    text-decoration: underline;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-self: flex-end;
-    margin: 10px;
 }
 
 .link {
-    display: flex;
-    align-items: center;
     font-weight: bold;
 }
 
 .link p {
-    font-size: 20px;
+    font-size: 15px;
     color: rgb(255, 115, 0);
     padding: 0 0 10px 0;
     margin: 0 10px;
@@ -110,14 +98,13 @@ a {
 
 
 img {
-    width: 400px;
-    max-height: 600px;
+    max-height: 250px;
     flex-shrink: 1;
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
 
 #right {
-    height: 500px;
+    height: 300px;
     width: 900px;
     display: flex;
     flex-direction: column;
@@ -125,12 +112,8 @@ img {
 }
 
 #left {
-    height: 500px;
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: 300px;
+    width: fit-content;
 }
 
 #folders {
@@ -144,7 +127,7 @@ img {
 }
 
 #greeting {
-    font-size: 25px;
+    font-size: 15px;
     width: 400px;
     text-align: center;
 }

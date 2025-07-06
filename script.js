@@ -1,5 +1,5 @@
 let catPic = document.getElementById("cat");
-const newBookmark = document.getElementById("bookmark-input");
+const newBookmark = document.getElementById("form");
 let bookmarkWindow = document.getElementById("bookmarks-window");
 const addBookmarkBtn = document.getElementById("add-bookmark");
 const removeBookmarkBtn = document.getElementById("remove-bookmark");
@@ -35,10 +35,10 @@ function displayBookmarks() {
   bookmarkWindow.innerHTML = "";
   for (const folder of folderList) {      
     const folderContainer = document.createElement("div");
-    folderContainer.classList.add("folder");
+    folderContainer.classList.add("vbox", "folder");
     const folderName = document.createElement("h2");
     folderName.classList.add("folder-name");
-    folderName.textContent = `${folder}`;
+    folderName.textContent = `[${folder}]`;
     folderContainer.appendChild(folderName);
     bookmarkList.forEach((bookmark) => {
       if(bookmark.folder === folder) {
@@ -46,7 +46,7 @@ function displayBookmarks() {
         let link = document.createElement("a");
         link.textContent = `${bookmark.name}`;
         link.href = bookmark.url;
-        linkContainer.classList.add("link");
+        linkContainer.classList.add("link", "hbox");
         linkContainer.dataset.index = `${bookmark.index}`;
         linkContainer.appendChild(link);
         folderContainer.appendChild(linkContainer);
