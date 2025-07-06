@@ -7,8 +7,6 @@ const savedBookmarks = localStorage.getItem('bookmarks');
 const bookmarkList = savedBookmarks ? JSON.parse(savedBookmarks) : [];
 const savedFolders = localStorage.getItem('folders');
 const folderList = savedFolders ? JSON.parse(savedFolders) : [];
-let targetFolder;
-let selectedFolder;
 
 function getCat() {
   fetch("https://www.reddit.com/r/pallascats/hot.json")
@@ -44,9 +42,10 @@ function displayBookmarks() {
       if(bookmark.folder === folder) {
         let linkContainer = document.createElement("span");
         let link = document.createElement("a");
+        link.classList.add("link");
         link.textContent = `${bookmark.name}`;
         link.href = bookmark.url;
-        linkContainer.classList.add("link", "hbox");
+        linkContainer.classList.add("linkContainer", "hbox");
         linkContainer.dataset.index = `${bookmark.index}`;
         linkContainer.appendChild(link);
         folderContainer.appendChild(linkContainer);
@@ -58,7 +57,7 @@ function displayBookmarks() {
 }
 
 function addDeleteButton() {
-  const links = document.getElementsByClassName("link");
+  const links = document.getElementsByClassName("linkContainer");
   for (let i=0; i < links.length; i++) {
     let deleteBtn = document.createElement("p");
     deleteBtn.textContent= "✘";
