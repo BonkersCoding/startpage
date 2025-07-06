@@ -11,9 +11,8 @@ body {
 input {
     all: unset;
     font-weight: bold;
-    font-size: 30px;
-    padding: 15px 25px;
-    border: 1px dashed rgba(255, 255, 255, 0.3);
+    font-size: 25px;
+    margin-left: 5px;
 }
 
 button {
@@ -21,14 +20,14 @@ button {
     cursor: pointer;
     padding: 5px 10px;
     margin: 0 3px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     color: wheat;
 }
 
 a {
     color: rgb(179, 194, 173);
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     text-decoration: none;
@@ -57,6 +56,14 @@ a {
     align-items: center;
 }
 
+.button-menu span {
+    font-size: 20px;
+}
+
+.button-menu {
+    align-self: flex-end;
+}
+
 .active {
     display: flex !important;
 }
@@ -65,10 +72,15 @@ a {
     text-decoration: underline;
  }
 
+ .search-field {
+    border-bottom: 1px solid wheat;
+    padding-bottom: 5px;
+ }
+
 .input-field {
     font-size: 20px;
     text-align: center;
-    margin: 10px 0;
+    margin: 20px 0;
     border-bottom: 1px solid white;
 }
 
@@ -80,7 +92,7 @@ a {
 
 .folder-name {
     margin: 0 0 10px 0;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: #b95fd2;
 }
@@ -89,17 +101,17 @@ a {
     font-weight: bold;
 }
 
-.link p {
-    font-size: 15px;
+.linkContainer p {
+    height: auto;
     color: rgb(255, 115, 0);
-    padding: 0 0 10px 0;
-    margin: 0 10px;
+    margin: 0 0 0 5px;
+    padding-bottom: 10px;
     cursor: pointer;
-}
+    }
 
 #container {
     display: flex;
-    padding: 15px 10px;
+    margin: 100px 10px;
 }
 
 
@@ -107,7 +119,7 @@ img {
     max-height: 250px;
     flex-shrink: 1;
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
-    margin: 5px 0 30px 0;
+    margin: 30px 0 5px 0;
 }
 
 #right {
@@ -140,4 +152,5 @@ img {
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-shrink: 0;
+    margin-bottom: 10px;
 }

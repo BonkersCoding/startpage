@@ -62,12 +62,14 @@ function addDeleteButton() {
     let deleteBtn = document.createElement("p");
     deleteBtn.textContent= "✘";
     deleteBtn.dataset.index = links[i].dataset.index;
-    deleteBtn.addEventListener('click', () => {
-      removeBookmark(Number(deleteBtn.dataset.index));
-      displayBookmarks();
-    })
     links[i].appendChild(deleteBtn);
   }
+  bookmarkWindow.addEventListener('click', (e) => {
+      if(e.target.localName === "p") {
+        removeBookmark(Number(e.target.dataset.index));
+      }
+      displayBookmarks();
+    })
 }
 
 function bookmarkInput() {
@@ -158,7 +160,9 @@ addBookmarkBtn.addEventListener('click', ()=>{
   bookmarkInput();
 });
 
-removeBookmarkBtn.addEventListener('click', () => {addDeleteButton();})
+removeBookmarkBtn.addEventListener('click', ()=>{
+  addDeleteButton();
+})
 
 getCat();
 displayBookmarks();

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script src="script.js" defer></script>
     <script src="parser.js" defer></script>
     <title>Startpage</title>
@@ -11,19 +12,19 @@
 <body>
     <div id="container">
         <div id="left" class="vbox">
-            <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
-            <img id="cat" alt="Cat loading...">
-            <input
-            type="text"
-            id="search"
-            name="search"
-            size="30"
-            autofocus /><br>
-            <div class="hbox button-menu">
-                <button id="add-bookmark">[Add bookmark]</button>
-                <button id="remove-bookmark">[Remove bookmark]</button>
-                <button id="fortune">[Fortune cookie]</button>
+            <div class="hbox search-field">
+                <span class="material-symbols-outlined">search</span>
+                <input            
+                    type="text"
+                    id="search"
+                    name="search"
+                    size="20"
+                    placeholder="search"
+                    autofocus 
+                />
             </div>
+            <img id="cat" alt="Cat loading...">
+            <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
             <span id="clock"></span>
             <span id="date"></span>
         </div>
@@ -37,14 +38,14 @@
                         name="bookmark-name"
                         required
                         placeholder="name"
-                        size="10" />
+                        size="25" />
                     <input
                         type="text"
                         id="bookmark-url"
                         class="input-field"
                         name="bookmark-url"
                         required
-                        size="10"
+                        size="25"
                         placeholder="URL" />
                     <input
                         type="text"
@@ -52,7 +53,7 @@
                         class="input-field"
                         name="bookmark-folder"
                         required
-                        size="10"
+                        size="25"
                         placeholder="folder"
                         list="suggestions" />
                 </div>
@@ -62,6 +63,10 @@
                 </div>
             </div>
             <div id="bookmarks-window"></div>
+            <div class="hbox button-menu">
+                <button id="add-bookmark"><span class="material-symbols-outlined">add</span></button>
+                <button id="remove-bookmark"><span class="material-symbols-outlined">delete</span></button>
+            </div>
         </div>
     </div>
 </body>
