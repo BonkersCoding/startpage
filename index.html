@@ -19,14 +19,45 @@
     </div>
     <div id="container">
         <div id="left">
-            <div id="frame">
-                <img id="cat" alt="Cat loading...">
-            </div>
+            <img id="cat" alt="Cat loading...">
             <span id="clock"></span>
             <span id="date"></span>
             <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
         </div>
         <div id="right">
+            <div id="bookmark-input" class="form">
+                <div class="form-input">
+                    <input
+                        type="text"
+                        id="bookmark-name"
+                        class="input-field"
+                        name="bookmark-name"
+                        required
+                        placeholder="name"
+                        size="10" />
+                    <input
+                        type="text"
+                        id="bookmark-url"
+                        class="input-field"
+                        name="bookmark-url"
+                        required
+                        size="10"
+                        placeholder="URL" />
+                    <input
+                        type="text"
+                        id="bookmark-folder"
+                        class="input-field"
+                        name="bookmark-folder"
+                        required
+                        size="10"
+                        placeholder="folder"
+                        list="suggestions" />
+                </div>
+                <div class="form-buttons">
+                    <button id="add-button">save</button>
+                    <button id="cancel-button">cancel</button>
+                </div>
+            </div>
             <div id="bookmarks-window"></div>
             <div class="buttons">
                 <button id="add-bookmark">Add bookmark</button>

@@ -40,11 +40,22 @@ a {
     flex-direction: column;
 }
 
-.form {
-    height: 400px;
-    width: 100%;
+.form {   
+    display: none; /* Hidden by default */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
     justify-content: center;
     align-items: center;
+}
+
+.active {
+    display: flex;
 }
 
 .form-buttons {
@@ -95,39 +106,31 @@ a {
 #container {
     display: flex;
     padding: 15px 10px;
-    background-color: rgba(0, 0, 0, 0.6);
 }
 
-#frame {
-    width: 450px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    overflow: hidden;
-}
 
-#cat {
+img {
     width: 400px;
     max-height: 600px;
     flex-shrink: 1;
-    padding: 10px;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
 
 #right {
-    min-height: 300px;
+    height: 500px;
     width: 900px;
-    padding: 50px 20px 0 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 #left {
+    height: 500px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #folders {

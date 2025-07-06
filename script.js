@@ -1,4 +1,5 @@
 let catPic = document.getElementById("cat");
+const newBookmark = document.getElementById("bookmark-input");
 let bookmarkWindow = document.getElementById("bookmarks-window");
 const addBookmarkBtn = document.getElementById("add-bookmark");
 const removeBookmarkBtn = document.getElementById("remove-bookmark");
@@ -71,59 +72,41 @@ function addDeleteButton() {
 }
 
 function bookmarkInput() {
-  bookmarkWindow.classList.toggle("list");
-  const form = document.createElement("div");
-  form.classList.add("form");
-  const formInput = document.createElement("div");
-  formInput.classList.add("form-input");
-  const formButtons = document.createElement("div");
-  formButtons.classList.add("form-buttons");
-  const bookmarkName = document.createElement("input");
-  bookmarkName.classList.add("input-field");
-  bookmarkName.type = "text";
-  bookmarkName.placeholder = "name";
-  const bookmarkURL = document.createElement("input");
-  bookmarkURL.classList.add("input-field");
-  bookmarkURL.type = "text";
-  bookmarkURL.placeholder = "URL";
+  bookmarkWindow.innerHTML="";
+  newBookmark.classList.add("active");
+  const bookmarkName = document.getElementById("bookmark-name");
+  const bookmarkURL = document.getElementById("bookmark-url");
+  const bookmarkFolder = document.getElementById("bookmark-folder");
+  const addBtn = document.getElementById("add-button");
+  const cancelBtn = document.getElementById("cancel-button");
   const folderSuggestions = document.createElement("datalist");
   folderSuggestions.id = "suggestions";
   for (let i = 0; i < folderList.length; i++) {
     const suggestion = document.createElement("option");
     suggestion.value = folderList[i];
     folderSuggestions.appendChild(suggestion);
-    console.log(suggestion);
   }
-  console.log(folderSuggestions);
-  const bookmarkFolder = document.createElement("input");
-  bookmarkFolder.classList.add("input-field");
-  bookmarkFolder.placeholder = "folder";
-  bookmarkFolder.setAttribute("list", "suggestions");
-  const addBtn = document.createElement("button");
-  addBtn.classList.add("add-button");
-  addBtn.textContent = "save";
-  const cancelBtn = document.createElement("button");
-  cancelBtn.classList.add("cancel-button");
-  cancelBtn.textContent = "cancel";
-  formInput.appendChild(bookmarkName);
-  formInput.appendChild(bookmarkURL);
-  formInput.appendChild(bookmarkFolder);
-  formButtons.appendChild(addBtn);
-  formButtons.appendChild(cancelBtn);
-  form.appendChild(formInput);
-  form.appendChild(formButtons);
-  form.appendChild(folderSuggestions);
-  bookmarkWindow.appendChild(form);
+  newBookmark.append(folderSuggestions);
   addBtn.addEventListener ("click", ()=>{
     const nameInput = bookmarkName.value;
     const urlInput = bookmarkURL.value;
     const folderInput = bookmarkFolder.value;
   if(nameInput && urlInput && folderInput) {
     addBookmark(nameInput, urlInput, folderInput);
+    bookmarkName.value = "";
+    bookmarkURL.value = "";
+    bookmarkFolder.value = "";
+    newBookmark.classList.remove("active");
     displayBookmarks();
   }
   })
-  cancelBtn.addEventListener ('click', ()=>{displayBookmarks()});
+  cancelBtn.addEventListener ('click', ()=>{  
+    bookmarkName.value = "";
+    bookmarkURL.value = "";
+    bookmarkFolder.value = "";  
+    newBookmark.classList.remove("active");
+    displayBookmarks()
+  });
 }
 
 
