@@ -9,21 +9,23 @@
     <title>Startpage</title>
 </head>
 <body>
-    <div id="input">
-        <h3 id="prompt">>></h3>
-        <input
+    <div id="container">
+        <div id="left" class="vbox">
+            <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
+            <img id="cat" alt="Cat loading...">
+            <input
             type="text"
             id="search"
             name="search"
-            size="40"
+            size="30"
             autofocus /><br>
-    </div>
-    <div id="container">
-        <div id="left" class="vbox">
-            <img id="cat" alt="Cat loading...">
+            <div class="hbox button-menu">
+                <button id="add-bookmark">[Add bookmark]</button>
+                <button id="remove-bookmark">[Remove bookmark]</button>
+                <button id="fortune">[Fortune cookie]</button>
+            </div>
             <span id="clock"></span>
             <span id="date"></span>
-            <h2 id="greeting">It's dangerous to go alone! Take this.</h2>
         </div>
         <div id="right">
             <div id="form" class="vbox">
@@ -60,11 +62,6 @@
                 </div>
             </div>
             <div id="bookmarks-window"></div>
-            <div class="hbox">
-                <button id="add-bookmark">[Add bookmark]</button>
-                <button id="remove-bookmark">[Remove bookmark]</button>
-                <button id="fortune">[Fortune cookie]</button>
-            </div>
         </div>
     </div>
 </body>
