@@ -26,8 +26,9 @@ function highlightBookmarks(string) {
 }
 
 function parseInput(string) {
-    const firstSpaceIndex = string.indexOf(" ");
+    const firstSpaceIndex = string.indexOf(" ") != -1 ? string.indexOf(" ") + 1 : 0;
     const command = string.slice(0, firstSpaceIndex);
     const argument = string.slice(firstSpaceIndex);
-    console.log(command + " weehee " + argument);
+    console.log(command);
+    console.log(argument);
 }

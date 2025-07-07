@@ -67,21 +67,25 @@ a {
 .active {
     display: flex !important;
 }
- .highlighted {
+
+.highlighted {
     color: white;
     text-decoration: underline;
  }
 
  .search-field {
-    border-bottom: 1px solid wheat;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.4) inset;
+    background-color: rgba(253, 110, 184, 0.098);
+    border-radius: 5px;
+    padding: 10px 15px;
     padding-bottom: 5px;
  }
 
 .input-field {
     font-size: 20px;
-    text-align: center;
     margin: 20px 0;
     border-bottom: 1px solid white;
+    text-align: center;
 }
 
 .folder {
@@ -111,6 +115,8 @@ a {
 
 #container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 100px 10px;
 }
 
@@ -132,7 +138,7 @@ img {
 }
 
 #left {
-    height: 300px;
+    min-height: 300px;
     width: fit-content;
 }
 
