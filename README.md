@@ -21,7 +21,7 @@ This project is a work in progress by someone who's just started learning web de
 - Add greeting, clock, weather forecast
 
 
-## 🛠️ Installation
+## Installation
 
 Clone the repo and open `index.html` in your browser. No dependencies.
 
