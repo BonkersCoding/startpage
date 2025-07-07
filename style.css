@@ -75,7 +75,7 @@ a {
 
  .search-field {
     box-shadow: 0 0 2px rgba(255, 255, 255, 0.4) inset;
-    background-color: rgba(253, 110, 184, 0.098);
+    background-color: rgba(110, 159, 253, 0.05);
     border-radius: 5px;
     padding: 10px 15px;
     padding-bottom: 5px;
@@ -98,7 +98,7 @@ a {
     margin: 0 0 10px 0;
     font-size: 22px;
     font-weight: bold;
-    color: #b95fd2;
+    color:#1b96aa;
 }
 
 .link {
