@@ -131,10 +131,10 @@ img {
 #right {
     height: 300px;
     width: 800px;
-    margin-left: 50px;
+    margin-left: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #left {
