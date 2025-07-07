@@ -74,6 +74,7 @@ a {
  }
 
  .search-field {
+    display: none;
     box-shadow: 0 0 2px rgba(255, 255, 255, 0.4) inset;
     background-color: rgba(110, 159, 253, 0.05);
     border-radius: 5px;
